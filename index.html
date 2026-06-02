@@ -1,80 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goldcar Lava Rápido</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Goldcar Lava Rápido</h1>
-  <a href="#agendamento">Agendar agora</a>
+<header class="topo">
+  <div class="logo">
+    <span>GOLDCAR</span>
+    <small>LAVA RÁPIDO</small>
+  </div>
+  <a href="#agendamento" class="btn">Agendar agora</a>
 </header>
 
 <section class="hero">
-  <h2>Seu carro limpo com praticidade e qualidade</h2>
-  <p>Agende sua lavagem online e envie tudo direto para nosso WhatsApp.</p>
-  <a href="#agendamento" class="botao">Fazer agendamento</a>
+  <div class="hero-content">
+    <h1>GOLDCAR<br><span>Lava Rápido</span></h1>
+    <p>Seu carro limpo, brilhando e bem cuidado com atendimento rápido e profissional.</p>
+    <a href="#agendamento" class="btn grande">Agendar pelo WhatsApp</a>
+  </div>
 </section>
 
 <section class="servicos">
-  <h2>Nossos serviços</h2>
+  <h2>Nossos Serviços</h2>
 
   <div class="cards">
     <div class="card">
       <h3>Lavagem Simples</h3>
-      <p>A partir de R$ 50,00</p>
+      <p>Limpeza rápida e eficiente.</p>
+      <strong>R$ 45,00</strong>
+    </div>
+
+    <div class="card destaque">
+      <h3>Lavagem Detalhada</h3>
+      <p>Mais cuidado nos detalhes internos e externos.</p>
+      <strong>R$ 60,00</strong>
     </div>
 
     <div class="card">
-      <h3>Lavagem Completa</h3>
-      <p>A partir de R$ 80,00</p>
-    </div>
-
-    <div class="card">
-      <h3>Higienização Interna</h3>
-      <p>A partir de R$ 120,00</p>
+      <h3>Lavagem Moto</h3>
+      <p>Lavagem prática para motos.</p>
+      <strong>R$ 20,00</strong>
     </div>
   </div>
 </section>
 
+<section class="info">
+  <h2>Entrega disponível</h2>
+  <p>A entrega possui taxa mínima de <strong>R$ 5,00</strong> e pode variar conforme o bairro.</p>
+</section>
+
 <section id="agendamento" class="agendamento">
-  <h2>Agende seu atendimento</h2>
+  <h2>Faça seu agendamento</h2>
 
   <form id="formulario">
     <label>Serviço</label>
     <select id="servico" required>
       <option value="">Selecione</option>
-      <option value="Lavagem Simples" data-preco="50">Lavagem Simples - R$ 50</option>
-      <option value="Lavagem Completa" data-preco="80">Lavagem Completa - R$ 80</option>
-      <option value="Higienização Interna" data-preco="120">Higienização Interna - R$ 120</option>
+      <option value="Lavagem Simples" data-preco="45">Lavagem Simples - R$ 45,00</option>
+      <option value="Lavagem Detalhada" data-preco="60">Lavagem Detalhada - R$ 60,00</option>
+      <option value="Lavagem Moto" data-preco="20">Lavagem Moto - R$ 20,00</option>
     </select>
 
-    <label>Local de atendimento</label>
+    <label>Tipo de atendimento</label>
     <select id="local" required>
       <option value="">Selecione</option>
-      <option value="Na loja" data-extra="0">Na loja + R$ 0</option>
-      <option value="Atendimento no local" data-extra="20">Atendimento no local + R$ 20</option>
-      <option value="Entrega na residência" data-extra="40">Entrega na residência + R$ 40</option>
+      <option value="Na Goldcar" data-extra="0">Na Goldcar + R$ 0,00</option>
+      <option value="Entrega" data-extra="5">Entrega - taxa mínima R$ 5,00</option>
     </select>
 
     <div class="total">
-      Valor final: <strong id="valorFinal">R$ 0,00</strong>
+      Valor inicial: <strong id="valorFinal">R$ 0,00</strong>
     </div>
 
-    <input id="nome" type="text" placeholder="Nome do cliente" required />
-    <input id="telefone" type="tel" placeholder="Telefone" required />
-    <input id="data" type="date" required />
-    <input id="horario" type="time" required />
+    <input id="nome" type="text" placeholder="Nome do cliente" required>
+    <input id="telefone" type="tel" placeholder="Telefone" required>
 
-    <div id="camposResidencia" class="escondido">
-      <input id="modelo" type="text" placeholder="Modelo do carro" />
-      <input id="ano" type="text" placeholder="Ano do carro" />
-      <input id="placa" type="text" placeholder="Placa do carro" />
-      <textarea id="endereco" placeholder="Endereço completo"></textarea>
-    </div>
+    <input id="modelo" type="text" placeholder="Modelo do carro ou moto">
+    <input id="placa" type="text" placeholder="Placa">
+
+    <input id="bairro" type="text" placeholder="Bairro">
+    <textarea id="endereco" placeholder="Endereço completo"></textarea>
+
+    <input id="data" type="date" required>
+    <input id="horario" type="time" required>
 
     <textarea id="observacoes" placeholder="Observações"></textarea>
 
@@ -85,8 +97,9 @@
 <footer>
   <h3>Goldcar Lava Rápido</h3>
   <p>WhatsApp: (77) 98111-4345</p>
-  <p>Segunda a sábado - 08h às 18h</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/5577981114345" target="_blank">WhatsApp</a>
 
 <script src="script.js"></script>
 </body>
