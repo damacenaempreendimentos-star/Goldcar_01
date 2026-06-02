@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+header {
+  background: #111;
+  color: #d4af37;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a,
+.botao,
+button {
+  background: #d4af37;
+  color: #111;
+  padding: 14px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #111, #333);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 30px;
+}
+
+.servicos,
+.agendamento {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.servicos h2,
+.agendamento h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  display: grid;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.total {
+  background: #111;
+  color: white;
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.total strong {
+  color: #d4af37;
+}
+
+.escondido {
+  display: none;
+}
+
+footer {
+  background: #111;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+}
