@@ -4,14 +4,8 @@ const formulario = document.getElementById("formulario");
 const servico = document.getElementById("servico");
 const local = document.getElementById("local");
 const valorFinal = document.getElementById("valorFinal");
-const camposResidencia = document.getElementById("camposResidencia");
 
-const modelo = document.getElementById("modelo");
-const ano = document.getElementById("ano");
-const placa = document.getElementById("placa");
-const endereco = document.getElementById("endereco");
-
-function formatarMoeda(valor) {
+function moeda(valor) {
   return valor.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL"
@@ -20,31 +14,16 @@ function formatarMoeda(valor) {
 
 function calcularTotal() {
   const precoServico = Number(servico.options[servico.selectedIndex]?.dataset.preco || 0);
-  const precoLocal = Number(local.options[local.selectedIndex]?.dataset.extra || 0);
+  const taxaLocal = Number(local.options[local.selectedIndex]?.dataset.extra || 0);
 
-  const total = precoServico + precoLocal;
-  valorFinal.textContent = formatarMoeda(total);
+  const total = precoServico + taxaLocal;
+  valorFinal.textContent = moeda(total);
 
   return total;
 }
 
-function atualizarCampos() {
-  const entregaResidencia = local.value === "Entrega na residência";
-
-  camposResidencia.classList.toggle("escondido", !entregaResidencia);
-
-  modelo.required = entregaResidencia;
-  ano.required = entregaResidencia;
-  placa.required = entregaResidencia;
-  endereco.required = entregaResidencia;
-}
-
 servico.addEventListener("change", calcularTotal);
-
-local.addEventListener("change", () => {
-  calcularTotal();
-  atualizarCampos();
-});
+local.addEventListener("change", calcularTotal);
 
 formulario.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -58,6 +37,10 @@ formulario.addEventListener("submit", function(event) {
 
   const nome = document.getElementById("nome").value;
   const telefone = document.getElementById("telefone").value;
+  const modelo = document.getElementById("modelo").value;
+  const placa = document.getElementById("placa").value;
+  const bairro = document.getElementById("bairro").value;
+  const endereco = document.getElementById("endereco").value;
   const data = document.getElementById("data").value;
   const horario = document.getElementById("horario").value;
   const observacoes = document.getElementById("observacoes").value;
@@ -66,27 +49,27 @@ formulario.addEventListener("submit", function(event) {
   mensagem += `*Nome:* ${nome}%0A`;
   mensagem += `*Telefone:* ${telefone}%0A`;
   mensagem += `*Serviço:* ${servico.value}%0A`;
-  mensagem += `*Local:* ${local.value}%0A`;
-  mensagem += `*Valor final:* ${formatarMoeda(total)}%0A`;
+  mensagem += `*Tipo de atendimento:* ${local.value}%0A`;
+  mensagem += `*Valor inicial:* ${moeda(total)}%0A`;
+
+  if (local.value === "Entrega") {
+    mensagem += `*Aviso:* A entrega tem taxa mínima de R$ 5,00 e pode variar conforme o bairro.%0A`;
+  }
+
+  mensagem += `%0A*Dados do veículo:*%0A`;
+  mensagem += `*Modelo:* ${modelo}%0A`;
+  mensagem += `*Placa:* ${placa}%0A`;
+  mensagem += `*Bairro:* ${bairro}%0A`;
+  mensagem += `*Endereço:* ${endereco}%0A`;
   mensagem += `*Data:* ${data}%0A`;
   mensagem += `*Horário:* ${horario}%0A`;
-
-  if (local.value === "Entrega na residência") {
-    mensagem += `%0A*Dados do veículo:*%0A`;
-    mensagem += `*Modelo:* ${modelo.value}%0A`;
-    mensagem += `*Ano:* ${ano.value}%0A`;
-    mensagem += `*Placa:* ${placa.value}%0A`;
-    mensagem += `*Endereço:* ${endereco.value}%0A`;
-  }
 
   if (observacoes) {
     mensagem += `%0A*Observações:* ${observacoes}%0A`;
   }
 
   const link = `https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
-
   window.open(link, "_blank");
 });
 
 calcularTotal();
-atualizarCampos();
