@@ -93,7 +93,6 @@ formulario.addEventListener("submit", async function(event) {
   mensagem += `🚗 *Modelo:* ${modelo}%0A`;
   mensagem += `🔖 *Placa:* ${placa || "Não informada"}%0A`;
   mensagem += `📅 *Data:* ${data.value}%0A`;
-  mensagem += `⏰ *Horário:* ${horario.value}%0A`;
   mensagem += `%0A💰 *Resumo do valor:*%0A`;
   mensagem += `*Serviço:* ${moeda(valores.precoServico)}%0A`;
 
