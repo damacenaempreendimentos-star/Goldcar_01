@@ -4,6 +4,28 @@ const formulario = document.getElementById("formulario");
 const servico = document.getElementById("servico");
 const local = document.getElementById("local");
 const valorFinal = document.getElementById("valorFinal");
+const data = document.getElementById("data");
+const horario = document.getElementById("horario");
+
+const horariosDisponiveis = [
+  "08:00",
+  "08:30",
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00"
+];
 
 function moeda(valor) {
   return valor.toLocaleString("pt-BR", {
@@ -22,8 +44,22 @@ function calcularTotal() {
   return total;
 }
 
+function carregarHorarios() {
+  horario.innerHTML = '<option value="">Escolha um horário</option>';
+
+  if (!data.value) return;
+
+  horariosDisponiveis.forEach(function(hora) {
+    const option = document.createElement("option");
+    option.value = hora;
+    option.textContent = hora;
+    horario.appendChild(option);
+  });
+}
+
 servico.addEventListener("change", calcularTotal);
 local.addEventListener("change", calcularTotal);
+data.addEventListener("change", carregarHorarios);
 
 formulario.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -41,8 +77,6 @@ formulario.addEventListener("submit", function(event) {
   const placa = document.getElementById("placa").value;
   const bairro = document.getElementById("bairro").value;
   const endereco = document.getElementById("endereco").value;
-  const data = document.getElementById("data").value;
-  const horario = document.getElementById("horario").value;
   const observacoes = document.getElementById("observacoes").value;
 
   let mensagem = `Olá, Goldcar Lava Rápido! Quero fazer um agendamento.%0A%0A`;
@@ -61,12 +95,14 @@ formulario.addEventListener("submit", function(event) {
   mensagem += `*Placa:* ${placa}%0A`;
   mensagem += `*Bairro:* ${bairro}%0A`;
   mensagem += `*Endereço:* ${endereco}%0A`;
-  mensagem += `*Data:* ${data}%0A`;
-  mensagem += `*Horário:* ${horario}%0A`;
+  mensagem += `*Data:* ${data.value}%0A`;
+  mensagem += `*Horário:* ${horario.value}%0A`;
 
   if (observacoes) {
     mensagem += `%0A*Observações:* ${observacoes}%0A`;
   }
+
+  alert("Agendamento pronto! Agora basta tocar em ENVIAR no WhatsApp.");
 
   const link = `https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
   window.open(link, "_blank");
