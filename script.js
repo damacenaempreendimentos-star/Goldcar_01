@@ -2,10 +2,14 @@ const supabaseUrl = "https://ffkagrxurtxeixaguvuj.supabase.co";
 
 const supabaseKey = "sb_publishable_9HK9Fx616DpRSfADtRLfAg_fjPDt615";
 
-const supabase = window.supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-);
+let supabaseClient = null;
+
+if (window.supabase) {
+  supabaseClient = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+  );
+}
 
 const WHATSAPP_GOLDCAR = "5577981114345";
 
@@ -92,20 +96,22 @@ formulario.addEventListener("submit", async function(event) {
     mensagem += `%0A📝 *Observações:* ${observacoes}%0A`;
   }
 
-  const { error } = await supabase
-    .from("clientes_goldcar")
-    .insert([
-      {
-        nome: nome,
-        telefone: telefone,
-        interesse: servico.value,
-        mensagem: decodeURIComponent(mensagem)
-      }
-    ]);
+  if (supabaseClient) {
+    const { error } = await supabaseClient
+      .from("clientes_goldcar")
+      .insert([
+        {
+          nome: nome,
+          telefone: telefone,
+          interesse: servico.value,
+          mensagem: decodeURIComponent(mensagem)
+        }
+      ]);
 
-  if (error) {
-    console.error(error);
-    alert("Erro ao salvar no banco. Mesmo assim vamos abrir o WhatsApp.");
+    if (error) {
+      console.error(error);
+      alert("Erro ao salvar no banco. Mesmo assim vamos abrir o WhatsApp.");
+    }
   }
 
   window.location.href =
