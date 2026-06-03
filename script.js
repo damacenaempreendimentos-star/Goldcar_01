@@ -164,10 +164,8 @@ mensagem +=
 mensagem +=
 `*Observações:* ${observacoes}%0A`;
 
-window.open(
-`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`,
-"_blank"
-);
+window.location.href =
+`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
 
 }
 );
