@@ -4,209 +4,173 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Goldcar Lava Rápido</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
 <header class="topo">
+  <div class="logo">
+    <strong>GOLDCAR</strong>
+    <span>LAVA RÁPIDO</span>
+  </div>
 
-<div class="logo">
-<strong>GOLDCAR</strong>
-<span>LAVA RÁPIDO</span>
-</div>
+  <nav class="menu">
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#agendamento">Agendar</a>
+  </nav>
 
-<a href="#agendamento" class="btn">
-Agendar Agora
-</a>
-
+  <a href="#agendamento" class="btn">Agendar Agora</a>
 </header>
 
 <section class="hero">
-
-<div class="hero-conteudo">
-
-<h1>GOLDCAR</h1>
-
-<h2>LAVA RÁPIDO</h2>
-
-<p>
-Seu veículo limpo, brilhando e bem cuidado.
-</p>
-
-<button type="submit">
-🚀 Finalizar e Enviar
-</button>
-
-</div>
-
+  <div class="hero-conteudo">
+    <p class="selo">Estética automotiva rápida e profissional</p>
+    <h1>GOLDCAR</h1>
+    <h2>LAVA RÁPIDO</h2>
+    <p>Seu veículo limpo, brilhando e bem cuidado.</p>
+    <a href="#agendamento" class="btn grande">🚀 Finalizar e Enviar</a>
+  </div>
 </section>
 
-<section class="servicos">
+<section class="servicos" id="servicos">
+  <h2>Nossos Serviços</h2>
 
-<h2>Nossos Serviços</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Lavagem Simples</h3>
+      <p>Limpeza rápida e eficiente para o dia a dia.</p>
+      <strong>R$ 45,00</strong>
+    </div>
 
-<div class="cards">
+    <div class="card destaque">
+      <h3>Lavagem Detalhada</h3>
+      <p>Mais atenção aos detalhes internos e externos.</p>
+      <strong>R$ 65,00</strong>
+    </div>
 
-<div class="card">
-<h3>Lavagem Simples</h3>
-<p>Limpeza rápida e eficiente.</p>
-<strong>R$ 45,00</strong>
-</div>
+    <div class="card">
+      <h3>Lavagem Moto</h3>
+      <p>Lavagem completa para motos.</p>
+      <strong>R$ 20,00</strong>
+    </div>
+  </div>
+</section>
 
-<div class="card destaque">
-<h3>Lavagem Detalhada</h3>
-<p>Mais atenção aos detalhes.</p>
-<strong>R$ 60,00</strong>
-</div>
+<section class="info-entrega">
+  <h2>Entrega disponível</h2>
+  <p>Taxa mínima de <strong>R$ 5,00</strong>. O valor final pode variar conforme o bairro escolhido.</p>
+</section>
 
-<div class="card">
-<h3>Lavagem Moto</h3>
-<p>Lavagem completa para motos.</p>
-<strong>R$ 20,00</strong>
-</div>
+<section class="galeria" id="galeria">
+  <h2>Galeria Goldcar</h2>
 
-</div>
+  <div class="galeria-grid">
+    <div class="foto foto1"><span>Brilho Premium</span></div>
+    <div class="foto foto2"><span>Lavagem Detalhada</span></div>
+    <div class="foto foto3"><span>Acabamento Profissional</span></div>
+  </div>
+</section>
 
+<section class="avaliacoes">
+  <h2>Clientes satisfeitos</h2>
+
+  <div class="cards">
+    <div class="depoimento">
+      <p>“Atendimento rápido e carro muito bem lavado.”</p>
+      <strong>★★★★★</strong>
+    </div>
+
+    <div class="depoimento">
+      <p>“Gostei do agendamento pelo WhatsApp, muito prático.”</p>
+      <strong>★★★★★</strong>
+    </div>
+
+    <div class="depoimento">
+      <p>“Preço justo e serviço caprichado.”</p>
+      <strong>★★★★★</strong>
+    </div>
+  </div>
 </section>
 
 <section class="agendamento" id="agendamento">
+  <h2>Agende Seu Atendimento</h2>
 
-<h2>Agende Seu Atendimento</h2>
+  <form id="formulario">
 
-<form id="formulario">
+    <label>Serviço</label>
+    <select id="servico" required>
+      <option value="">Selecione</option>
+      <option value="Lavagem Simples" data-preco="45">Lavagem Simples - R$45</option>
+      <option value="Lavagem Detalhada" data-preco="60">Lavagem Detalhada - R$60</option>
+      <option value="Lavagem Moto" data-preco="20">Lavagem Moto - R$20</option>
+    </select>
 
-<label>Serviço</label>
+    <label>Tipo de Atendimento</label>
+    <select id="local" required>
+      <option value="">Selecione</option>
+      <option value="Na Goldcar" data-extra="0">Na Goldcar</option>
+      <option value="Entrega" data-extra="5">Entrega</option>
+    </select>
 
-<select id="servico" required>
-<option value="">Selecione</option>
+    <label>Bairro</label>
+    <select id="bairro">
+      <option value="">Selecione o bairro</option>
+      <option value="Centro" data-taxa="5">Centro - R$5</option>
+      <option value="Brasil" data-taxa="7">Brasil - R$7</option>
+      <option value="Candeias" data-taxa="10">Candeias - R$10</option>
+      <option value="Patagônia" data-taxa="8">Patagônia - R$8</option>
+      <option value="Outro bairro" data-taxa="5">Outro bairro - a combinar</option>
+    </select>
 
-<option value="Lavagem Simples" data-preco="45">
-Lavagem Simples - R$45
-</option>
+    <div class="total">
+      Valor Atual:
+      <strong id="valorFinal">R$ 0,00</strong>
+    </div>
 
-<option value="Lavagem Detalhada" data-preco="60">
-Lavagem Detalhada - R$60
-</option>
+    <input type="text" id="nome" placeholder="Nome do Cliente" required>
+    <input type="tel" id="telefone" placeholder="Telefone" required>
+    <input type="text" id="modelo" placeholder="Modelo do veículo" required>
+    <input type="text" id="placa" placeholder="Placa">
+    <textarea id="endereco" placeholder="Endereço Completo"></textarea>
 
-<option value="Lavagem Moto" data-preco="20">
-Lavagem Moto - R$20
-</option>
+    <label>Escolha a Data</label>
+    <input type="date" id="data" required>
 
-</select>
+    <label>Horário Disponível</label>
+    <select id="horario" required>
+      <option value="">Escolha um horário</option>
+    </select>
 
-<label>Tipo de Atendimento</label>
+    <textarea id="observacoes" placeholder="Observações"></textarea>
 
-<select id="local" required>
+    <button type="submit">🚀 Finalizar e Enviar</button>
+  </form>
+</section>
 
-<option value="">Selecione</option>
+<section class="pix">
+  <h2>Pagamento via Pix</h2>
+  <p>Você pode pagar no local ou solicitar a chave Pix pelo WhatsApp.</p>
+  <div class="qr-fake">PIX</div>
+</section>
 
-<option value="Na Goldcar" data-extra="0">
-Na Goldcar
-</option>
-
-<option value="Entrega" data-extra="5">
-Entrega (+R$5 mínimo)
-</option>
-
-</select>
-
-<div class="total">
-
-Valor Atual:
-<strong id="valorFinal">
-R$ 0,00
-</strong>
-
-</div>
-
-<input
-type="text"
-id="nome"
-placeholder="Nome do Cliente"
-required
->
-
-<input
-type="tel"
-id="telefone"
-placeholder="Telefone"
-required
->
-
-<input
-type="text"
-id="modelo"
-placeholder="Modelo do veículo"
-required
->
-
-<input
-type="text"
-id="placa"
-placeholder="Placa"
->
-
-<input
-type="text"
-id="bairro"
-placeholder="Bairro"
->
-
-<textarea
-id="endereco"
-placeholder="Endereço Completo"
-></textarea>
-
-<label>Escolha a Data</label>
-
-<input
-type="date"
-id="data"
-required
->
-
-<label>Horário Disponível</label>
-
-<select id="horario" required>
-
-<option value="">
-Escolha um horário
-</option>
-
-</select>
-
-<textarea
-id="observacoes"
-placeholder="Observações"
-></textarea>
-
-<button type="submit">
-
-🚀 Finalizar e Enviar
-
-</button>
-
-</form>
-
+<section class="mapa">
+  <h2>Onde estamos</h2>
+  <p>Adicione aqui o endereço da Goldcar Lava Rápido.</p>
+  <iframe
+    src="https://www.google.com/maps?q=Vit%C3%B3ria%20da%20Conquista%20Bahia&output=embed"
+    loading="lazy">
+  </iframe>
 </section>
 
 <footer>
-
-<h3>Goldcar Lava Rápido</h3>
-
-<p>
-WhatsApp: (77) 98111-4345
-</p>
-
+  <h3>Goldcar Lava Rápido</h3>
+  <p>WhatsApp: (77) 98111-4345</p>
+  <p>Lavagem simples, detalhada, moto e entrega conforme bairro.</p>
 </footer>
 
-<a
-class="whatsapp"
-href="https://wa.me/5577981114345"
-target="_blank"
->
+<a class="whatsapp" href="https://wa.me/5577981114345" target="_blank">
 WhatsApp
 </a>
 
