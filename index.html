@@ -10,16 +10,17 @@
 
 <header class="topo">
   <div class="logo">
-    <span>GOLDCAR</span>
-    <small>LAVA RÁPIDO</small>
+    <strong>GOLDCAR</strong>
+    <span>LAVA RÁPIDO</span>
   </div>
   <a href="#agendamento" class="btn">Agendar agora</a>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>GOLDCAR<br><span>Lava Rápido</span></h1>
-    <p>Seu carro limpo, brilhando e bem cuidado com atendimento rápido e profissional.</p>
+  <div>
+    <h1>GOLDCAR</h1>
+    <h2>Lava Rápido</h2>
+    <p>Seu veículo limpo, brilhando e bem cuidado.</p>
     <a href="#agendamento" class="btn grande">Agendar pelo WhatsApp</a>
   </div>
 </section>
@@ -36,7 +37,7 @@
 
     <div class="card destaque">
       <h3>Lavagem Detalhada</h3>
-      <p>Mais cuidado nos detalhes internos e externos.</p>
+      <p>Limpeza com mais cuidado nos detalhes.</p>
       <strong>R$ 60,00</strong>
     </div>
 
@@ -48,13 +49,13 @@
   </div>
 </section>
 
-<section class="info">
+<section class="aviso">
   <h2>Entrega disponível</h2>
-  <p>A entrega possui taxa mínima de <strong>R$ 5,00</strong> e pode variar conforme o bairro.</p>
+  <p>Taxa mínima de <strong>R$ 5,00</strong>. O valor pode variar conforme o bairro.</p>
 </section>
 
 <section id="agendamento" class="agendamento">
-  <h2>Faça seu agendamento</h2>
+  <h2>Agende seu atendimento</h2>
 
   <form id="formulario">
     <label>Serviço</label>
@@ -78,19 +79,23 @@
 
     <input id="nome" type="text" placeholder="Nome do cliente" required>
     <input id="telefone" type="tel" placeholder="Telefone" required>
-
-    <input id="modelo" type="text" placeholder="Modelo do carro ou moto">
+    <input id="modelo" type="text" placeholder="Modelo do carro ou moto" required>
     <input id="placa" type="text" placeholder="Placa">
 
     <input id="bairro" type="text" placeholder="Bairro">
     <textarea id="endereco" placeholder="Endereço completo"></textarea>
 
+    <label>Escolha a data</label>
     <input id="data" type="date" required>
-    <input id="horario" type="time" required>
+
+    <label>Horários disponíveis</label>
+    <select id="horario" required>
+      <option value="">Escolha um horário</option>
+    </select>
 
     <textarea id="observacoes" placeholder="Observações"></textarea>
 
-    <button type="submit">Enviar para WhatsApp</button>
+    <button type="submit">Finalizar e abrir WhatsApp</button>
   </form>
 </section>
 
