@@ -1,4 +1,11 @@
-const WHATSAPP_GOLDCAR = "5577981114345";
+const supabaseUrl = "https://ffkagrxurtxeixaguvuj.supabase.co";
+
+const supabaseKey = "sb_publishable_9HK9Fx616DpRSfADtRLfAg_fjPDt615";
+
+const supabase = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);const WHATSAPP_GOLDCAR = "5577981114345";
 
 const formulario = document.getElementById("formulario");
 const servico = document.getElementById("servico");
@@ -74,12 +81,11 @@ function carregarHorarios() {
   });
 }
 
-servico.addEventListener("change", calcularTotal);
 local.addEventListener("change", calcularTotal);
 bairro.addEventListener("change", calcularTotal);
 data.addEventListener("change", carregarHorarios);
 
-formulario.addEventListener("submit", function(event) {
+formulario.addEventListener("submit", async function(event) {
   event.preventDefault();
 
   if (!formulario.checkValidity()) {
@@ -120,9 +126,63 @@ formulario.addEventListener("submit", function(event) {
   if (observacoes) {
     mensagem += `%0A📝 *Observações:* ${observacoes}%0A`;
   }
+try {
 
-  window.location.href =
-    `https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
-});
+  await supabase
+    .from("clientes_goldcar")
+    .insert([
+      {
+        nome: nome.value,
+        telefone: telefone.value,
+        interesse: servico.value,
+        mensagem: mensagem
+      }
+    ]);
+
+} catch (erro) {
+  console.error(erro);
+}
+
+window.location.href =
+`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
+
+});try {
+
+  await supabase
+    .from("clientes_goldcar")
+    .insert([
+      {
+        nome: nome.value,
+        telefone: telefone.value,
+        interesse: servico.value,
+        mensagem: mensagem
+      }
+    ]);
+
+} catch (erro) {
+  console.error(erro);
+}
+
+try {
+
+  await supabase
+    .from("clientes_goldcar")
+    .insert([
+      {
+        nome: nome.value,
+        telefone: telefone.value,
+        interesse: servico.value,
+        mensagem: mensagem
+      }
+    ]);
+
+} catch (erro) {
+  console.error(erro);
+}
+
+window.location.href =
+`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
+
+
 
 calcularTotal();
