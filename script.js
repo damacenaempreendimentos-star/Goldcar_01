@@ -5,7 +5,9 @@ const supabaseKey = "sb_publishable_9HK9Fx616DpRSfADtRLfAg_fjPDt615";
 const supabase = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
-);const WHATSAPP_GOLDCAR = "5577981114345";
+);
+
+const WHATSAPP_GOLDCAR = "5577981114345";
 
 const formulario = document.getElementById("formulario");
 const servico = document.getElementById("servico");
@@ -13,7 +15,6 @@ const local = document.getElementById("local");
 const bairro = document.getElementById("bairro");
 const valorFinal = document.getElementById("valorFinal");
 const data = document.getElementById("data");
-
 
 function moeda(valor) {
   return valor.toLocaleString("pt-BR", {
@@ -27,11 +28,9 @@ function calcularTotal() {
     servico.options[servico.selectedIndex]?.dataset.preco || 0
   );
 
-  const tipoAtendimento = local.value;
-
   let taxaEntrega = 0;
 
-  if (tipoAtendimento === "Entrega") {
+  if (local.value === "Entrega") {
     taxaEntrega = Number(
       bairro.options[bairro.selectedIndex]?.dataset.taxa || 5
     );
@@ -48,22 +47,9 @@ function calcularTotal() {
   };
 }
 
-function carregarHorarios() {
-  horario.innerHTML = '<option value="">Escolha um horário</option>';
-
-  if (!data.value) return;
-
-  horariosDisponiveis.forEach(function(hora) {
-    const option = document.createElement("option");
-    option.value = hora;
-    option.textContent = hora;
-    horario.appendChild(option);
-  });
-}
-
+servico.addEventListener("change", calcularTotal);
 local.addEventListener("change", calcularTotal);
 bairro.addEventListener("change", calcularTotal);
-data.addEventListener("change", carregarHorarios);
 
 formulario.addEventListener("submit", async function(event) {
   event.preventDefault();
@@ -82,7 +68,7 @@ formulario.addEventListener("submit", async function(event) {
   const endereco = document.getElementById("endereco").value;
   const observacoes = document.getElementById("observacoes").value;
 
-  let mensagem = `🚗 *NOVO AGENDAMENTO GOLDCAR*%0A%0A`;
+  let mensagem = `🚗 *NOVO ATENDIMENTO GOLDCAR*%0A%0A`;
 
   mensagem += `👤 *Nome:* ${nome}%0A`;
   mensagem += `📞 *Telefone:* ${telefone}%0A`;
@@ -92,7 +78,7 @@ formulario.addEventListener("submit", async function(event) {
   mensagem += `📌 *Endereço:* ${endereco || "Não informado"}%0A`;
   mensagem += `🚗 *Modelo:* ${modelo}%0A`;
   mensagem += `🔖 *Placa:* ${placa || "Não informada"}%0A`;
-  mensagem += `📅 *Data:* ${data.value}%0A`;
+  mensagem += `📅 *Data:* ${data.value || "Por ordem de chegada"}%0A`;
   mensagem += `%0A💰 *Resumo do valor:*%0A`;
   mensagem += `*Serviço:* ${moeda(valores.precoServico)}%0A`;
 
@@ -105,63 +91,25 @@ formulario.addEventListener("submit", async function(event) {
   if (observacoes) {
     mensagem += `%0A📝 *Observações:* ${observacoes}%0A`;
   }
-try {
 
-  await supabase
+  const { error } = await supabase
     .from("clientes_goldcar")
     .insert([
       {
-        nome: nome.value,
-        telefone: telefone.value,
+        nome: nome,
+        telefone: telefone,
         interesse: servico.value,
-        mensagem: mensagem
+        mensagem: decodeURIComponent(mensagem)
       }
     ]);
 
-} catch (erro) {
-  console.error(erro);
-}
+  if (error) {
+    console.error(error);
+    alert("Erro ao salvar no banco. Mesmo assim vamos abrir o WhatsApp.");
+  }
 
-window.location.href =
-`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
-
-});try {
-
-  await supabase
-    .from("clientes_goldcar")
-    .insert([
-      {
-        nome: nome.value,
-        telefone: telefone.value,
-        interesse: servico.value,
-        mensagem: mensagem
-      }
-    ]);
-
-} catch (erro) {
-  console.error(erro);
-}
-
-try {
-
-  await supabase
-    .from("clientes_goldcar")
-    .insert([
-      {
-        nome: nome.value,
-        telefone: telefone.value,
-        interesse: servico.value,
-        mensagem: mensagem
-      }
-    ]);
-
-} catch (erro) {
-  console.error(erro);
-}
-
-window.location.href =
-`https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
-
-
+  window.location.href =
+    `https://wa.me/${WHATSAPP_GOLDCAR}?text=${mensagem}`;
+});
 
 calcularTotal();
