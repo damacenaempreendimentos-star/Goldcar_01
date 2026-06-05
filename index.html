@@ -1,3 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goldcar Lava Rápido</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="logo">
+    <strong>GOLDCAR</strong>
+    <span>LAVA RÁPIDO</span>
+  </div>
+
+  <nav class="menu">
+    <a href="#servicos">Serviços</a>
+    <a href="#beneficios">Diferenciais</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#agendamento">Agendar</a>
+  </nav>
+
+  <a href="#agendamento" class="btn">Agendar Agora</a>
+</header>
+
+<section class="hero">
+  <div class="hero-conteudo">
+    <p class="selo">Estética automotiva premium em Vitória da Conquista</p>
+    <h1>GOLDCAR</h1>
+    <h2>LAVA RÁPIDO</h2>
+    <p>Lavagem, cuidado e acabamento profissional para deixar seu veículo com presença de carro novo.</p>
+    <div class="hero-acoes">
+      <a href="#agendamento" class="btn grande">Agendar atendimento</a>
+      <a href="#servicos" class="btn-secundario">Ver serviços</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <span>Premium Wash</span>
+    <strong>Brilho superior</strong>
+    <p>Atendimento rápido, produtos profissionais e cuidado nos detalhes.</p>
+  </div>
+</section>
+
+<section class="contadores">
+  <div class="contador">
+    <strong>+500</strong>
+    <span>veículos atendidos</span>
+  </div>
+
+  <div class="contador">
+    <strong>+100</strong>
+    <span>clientes satisfeitos</span>
+  </div>
+
+  <div class="contador">
+    <strong>+3</strong>
+    <span>anos de experiência</span>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <span class="secao-label">Serviços</span>
+  <h2>Tratamentos para cada rotina</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="servico-icone">CAR</div>
+      <h3>Lavagem Simples</h3>
+      <p>Limpeza rápida e eficiente para o dia a dia.</p>
+      <strong>R$ 45,00</strong>
+    </div>
+
+    <div class="card destaque">
+      <span class="mais-vendido">Mais vendido</span>
+      <div class="servico-icone">PRO</div>
+      <h3>Lavagem Detalhada</h3>
+      <p>Mais atenção aos detalhes internos e externos.</p>
+      <strong>R$ 65,00</strong>
+    </div>
+
+    <div class="card">
+      <div class="servico-icone">MOTO</div>
+      <h3>Lavagem Moto</h3>
+      <p>Lavagem completa para motos.</p>
+      <strong>R$ 20,00</strong>
+    </div>
+  </div>
+</section>
+
+<section class="beneficios" id="beneficios">
+  <span class="secao-label">Diferenciais</span>
+  <h2>Por que escolher a GoldCar?</h2>
+
+  <div class="beneficios-grid">
+    <div class="beneficio">
+      <span>01</span>
+      <h3>Atendimento rápido</h3>
+      <p>Processo simples, ágil e pensado para encaixar na sua rotina.</p>
+    </div>
+    <div class="beneficio">
+      <span>02</span>
+      <h3>Qualidade garantida</h3>
+      <p>Acabamento cuidadoso para entregar limpeza, brilho e confiança.</p>
+    </div>
+
+    <div class="beneficio">
+      <span>03</span>
+      <h3>Produtos profissionais</h3>
+      <p>Uso de produtos adequados para cuidar da pintura e dos detalhes.</p>
+    </div>
+
+    <div class="beneficio">
+      <span>04</span>
+      <h3>Busca e entrega</h3>
+      <p>Mais comodidade com entrega disponível conforme o bairro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="info-entrega">
+  <h2>Entrega disponível</h2>
+  <p>Taxa mínima de <strong>R$ 5,00</strong>. O valor final pode variar conforme o bairro escolhido.</p>
+</section>
+
+<section class="galeria" id="galeria">
+  <span class="secao-label">Galeria</span>
+  <h2>Resultado com padrão GoldCar</h2>
+
+  <div class="galeria-grid">
+    <div class="foto foto1"><span>Brilho Premium</span></div>
+    <div class="foto foto2"><span>Lavagem Detalhada</span></div>
+    <div class="foto foto3"><span>Acabamento Profissional</span></div>
+  </div>
+</section>
+
+<section class="avaliacoes">
+  <span class="secao-label">Avaliações</span>
+  <h2>Clientes satisfeitos</h2>
+
+  <div class="cards">
+    <div class="depoimento">
+      <div class="avaliacao-topo">
+        <span>G</span>
+        <div>
+          <strong>★★★★★</strong>
+          <small>Cliente GoldCar</small>
         </div>
       </div>
       <p>"Atendimento rápido e carro muito bem lavado."</p>
@@ -47,7 +196,7 @@
           <option value="Lavagem Moto" data-preco="20">Lavagem Moto - R$20</option>
         </select>
       </div>
-
+      
       <div class="campo">
         <label for="local">Tipo de atendimento</label>
         <select id="local" required>
@@ -180,6 +329,6 @@ WhatsApp
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
-        
