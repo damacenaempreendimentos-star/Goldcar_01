@@ -221,14 +221,16 @@ button {
 
 .foto3 {
   background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200");
-}
+
 
 form {
-  max-width: 720px;
+  max-width: 1000px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+
   background: linear-gradient(145deg, #111, #050505);
   padding: 32px;
   border-radius: 18px;
@@ -362,5 +364,48 @@ footer h3 {
 
   form {
     padding: 22px;
+  }
+}
+.grupo-formulario {
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.grupo-formulario legend {
+  color: #00aaff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+.linha-formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.campo {
+  width: 100%;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  display: block;
+}
+
+.botao-enviar {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .linha-formulario {
+    grid-template-columns: 1fr;
   }
 }
