@@ -1,164 +1,148 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goldcar Lava Rápido</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<header class="topo">
-  <div class="logo">
-    <strong>GOLDCAR</strong>
-    <span>LAVA RÁPIDO</span>
-  </div>
-
-  <nav class="menu">
-    <a href="#servicos">Serviços</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#agendamento">Agendar</a>
-  </nav>
-
-  <a href="#agendamento" class="btn">Agendar Agora</a>
-</header>
-
-<section class="hero">
-  <div class="hero-conteudo">
-    <p class="selo">Estética automotiva rápida e profissional</p>
-    <h1>GOLDCAR</h1>
-    <h2>LAVA RÁPIDO</h2>
-    <p>Seu veículo limpo, brilhando e bem cuidado.</p>
-    <a href="#agendamento" class="btn grande">🚀 Finalizar e Enviar</a>
-  </div>
-</section>
-
-<section class="servicos" id="servicos">
-  <h2>Nossos Serviços</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Lavagem Simples</h3>
-      <p>Limpeza rápida e eficiente para o dia a dia.</p>
-      <strong>R$ 45,00</strong>
-    </div>
-
-    <div class="card destaque">
-      <h3>Lavagem Detalhada</h3>
-      <p>Mais atenção aos detalhes internos e externos.</p>
-      <strong>R$ 65,00</strong>
-    </div>
-
-    <div class="card">
-      <h3>Lavagem Moto</h3>
-      <p>Lavagem completa para motos.</p>
-      <strong>R$ 20,00</strong>
-    </div>
-  </div>
-</section>
-
-<section class="info-entrega">
-  <h2>Entrega disponível</h2>
-  <p>Taxa mínima de <strong>R$ 5,00</strong>. O valor final pode variar conforme o bairro escolhido.</p>
-</section>
-
-<section class="galeria" id="galeria">
-  <h2>Galeria Goldcar</h2>
-
-  <div class="galeria-grid">
-    <div class="foto foto1"><span>Brilho Premium</span></div>
-    <div class="foto foto2"><span>Lavagem Detalhada</span></div>
-    <div class="foto foto3"><span>Acabamento Profissional</span></div>
-  </div>
-</section>
-
-<section class="avaliacoes">
-  <h2>Clientes satisfeitos</h2>
-
-  <div class="cards">
-    <div class="depoimento">
-      <p>“Atendimento rápido e carro muito bem lavado.”</p>
-      <strong>★★★★★</strong>
+        </div>
+      </div>
+      <p>"Atendimento rápido e carro muito bem lavado."</p>
     </div>
 
     <div class="depoimento">
-      <p>“Gostei do agendamento pelo WhatsApp, muito prático.”</p>
-      <strong>★★★★★</strong>
+      <div class="avaliacao-topo">
+        <span>G</span>
+        <div>
+          <strong>★★★★★</strong>
+          <small>Cliente GoldCar</small>
+        </div>
+      </div>
+      <p>"Gostei do agendamento pelo WhatsApp, muito prático."</p>
     </div>
 
     <div class="depoimento">
-      <p>“Preço justo e serviço caprichado.”</p>
-      <strong>★★★★★</strong>
+      <div class="avaliacao-topo">
+        <span>G</span>
+        <div>
+          <strong>★★★★★</strong>
+          <small>Cliente GoldCar</small>
+        </div>
+      </div>
+      <p>"Preço justo e serviço caprichado."</p>
     </div>
   </div>
 </section>
 
 <section class="agendamento" id="agendamento">
-  <h2>Agende Seu Atendimento</h2>
+  <div class="agendamento-cabecalho">
+    <span class="etiqueta">Agendamento Goldcar</span>
+    <h2>Agende seu atendimento</h2>
+    <p class="aviso-chegada">Atendimento por ordem de chegada</p>
+  </div>
 
   <form id="formulario">
+    <fieldset class="grupo-formulario">
+      <legend>Dados do serviço</legend>
 
-    <label>Serviço</label>
-    <select id="servico" required>
-      <option value="">Selecione</option>
-      <option value="Lavagem Simples" data-preco="45">Lavagem Simples - R$45</option>
-      <option value="Lavagem Detalhada" data-preco="60">Lavagem Detalhada - R$60</option>
-      <option value="Lavagem Moto" data-preco="20">Lavagem Moto - R$20</option>
-    </select>
+      <div class="campo">
+        <label for="servico">Serviço</label>
+        <select id="servico" required>
+          <option value="">Selecione</option>
+          <option value="Lavagem Simples" data-preco="45">Lavagem Simples - R$45</option>
+          <option value="Lavagem Detalhada" data-preco="60">Lavagem Detalhada - R$60</option>
+          <option value="Lavagem Moto" data-preco="20">Lavagem Moto - R$20</option>
+        </select>
+      </div>
 
-    <label>Tipo de Atendimento</label>
-    <select id="local" required>
-      <option value="">Selecione</option>
-      <option value="Na Goldcar" data-extra="0">Na Goldcar</option>
-      <option value="Entrega" data-extra="5">Entrega</option>
-    </select>
+      <div class="campo">
+        <label for="local">Tipo de atendimento</label>
+        <select id="local" required>
+          <option value="">Selecione</option>
+          <option value="Na Goldcar" data-extra="0">Na Goldcar</option>
+          <option value="Entrega" data-extra="5">Entrega</option>
+        </select>
+      </div>
 
-   <select id="bairro">
-  <option value="">Selecione o bairro</option>
+      <div class="campo">
+        <label for="bairro">Bairro</label>
+        <select id="bairro">
+          <option value="">Selecione o bairro</option>
+          <option value="Centro" data-taxa="5">Centro - R$5</option>
+          <option value="Brasil" data-taxa="7">Brasil - R$7</option>
+          <option value="Candeias" data-taxa="10">Candeias - R$10</option>
+          <option value="Patagônia" data-taxa="8">Patagônia - R$8</option>
+          <option value="Outro bairro" data-taxa="5">Outro bairro - a combinar</option>
+        </select>
+      </div>
 
-  <option value="Alto Maron" data-taxa="5">Alto Maron - R$ 5</option>
-  <option value="Candeias" data-taxa="5">Candeias - R$ 5</option>
-  <option value="Bairro Brasil" data-taxa="8">Bairro Brasil - R$ 8</option>
-  <option value="Centro" data-taxa="5">Centro - R$ 5</option>
-  <option value="Cruzeiro" data-taxa="5">Cruzeiro - R$ 5</option>
-  <option value="Boa Vista" data-taxa="8">Boa Vista - R$ 8</option>
-  <option value="Patagônia" data-taxa="12">Patagônia - R$ 12</option>
-  <option value="Kadija" data-taxa="12">Kadija - R$ 12</option>
-  <option value="Miro Cairo" data-taxa="12">Miro Cairo - R$ 12</option>
-  <option value="Outros Bairros" data-taxa="15">Outros Bairros - R$ 15</option>
-</select>
+      <div class="total">
+        <span>Valor final</span>
+        <strong id="valorFinal">R$ 0,00</strong>
+      </div>
+    </fieldset>
 
-    <div class="total">
-      Valor Atual:
-      <strong id="valorFinal">R$ 0,00</strong>
-    </div>
+    <fieldset class="grupo-formulario">
+      <legend>Dados do cliente</legend>
 
-    <input type="text" id="nome" placeholder="Nome do Cliente" required>
-    <input type="tel" id="telefone" placeholder="Telefone" required>
-    <input type="text" id="modelo" placeholder="Modelo do veículo" required>
-    <input type="text" id="placa" placeholder="Placa">
-    <textarea id="endereco" placeholder="Endereço Completo"></textarea>
+      <div class="linha-formulario">
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Nome do cliente" required>
+        </div>
 
-    <label>Escolha a Data</label>
-    <input type="date" id="data" required>
+        <div class="campo">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" placeholder="Telefone" required>
+        </div>
+      </div>
+    </fieldset>
 
-   
-  
+    <fieldset class="grupo-formulario">
+      <legend>Dados do veículo</legend>
 
-    <textarea id="observacoes" placeholder="Observações"></textarea>
+      <div class="linha-formulario">
+        <div class="campo">
+          <label for="modelo">Modelo</label>
+          <input type="text" id="modelo" placeholder="Modelo do veículo" required>
+        </div>
 
-    <button type="submit">🚀 Finalizar e Enviar</button>
+        <div class="campo">
+          <label for="placa">Placa</label>
+          <input type="text" id="placa" placeholder="Placa">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="data">Escolha a data</label>
+        <input type="date" id="data" required>
+      </div>
+    </fieldset>
+
+    <fieldset class="grupo-formulario">
+      <legend>Local de entrega</legend>
+
+      <div class="campo">
+        <label for="endereco">Endereço</label>
+        <textarea id="endereco" placeholder="Endereço completo"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset class="grupo-formulario">
+      <legend>Observações</legend>
+
+      <div class="campo">
+        <label for="observacoes">Observações</label>
+        <textarea id="observacoes" placeholder="Observações"></textarea>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="botao-enviar">Finalizar e Enviar</button>
   </form>
 </section>
 
 <section class="pix">
+  <span class="secao-label">Pagamento</span>
   <h2>Pagamento via Pix</h2>
   <p>Você pode pagar no local ou solicitar a chave Pix pelo WhatsApp.</p>
   <div class="qr-fake">PIX</div>
 </section>
 
 <section class="mapa">
+  <span class="secao-label">Localização</span>
   <h2>Onde estamos</h2>
   <p>Adicione aqui o endereço da Goldcar Lava Rápido.</p>
   <iframe
@@ -168,9 +152,26 @@
 </section>
 
 <footer>
-  <h3>Goldcar Lava Rápido</h3>
-  <p>WhatsApp: (77) 98111-4345</p>
-  <p>Lavagem simples, detalhada, moto e entrega conforme bairro.</p>
+  <div class="footer-grid">
+    <div>
+      <h3>Goldcar Lava Rápido</h3>
+      <p>Lavagem simples, detalhada, moto e entrega conforme bairro.</p>
+    </div>
+
+    <div class="footer-contato">
+      <strong>Contato</strong>
+      <p>WhatsApp: (77) 98111-4345</p>
+      <p>Vitória da Conquista - BA</p>
+    </div>
+
+    <div class="footer-redes">
+      <strong>Redes sociais</strong>
+      <a href="#" aria-label="Instagram GoldCar">Instagram</a>
+      <a href="#" aria-label="Facebook GoldCar">Facebook</a>
+    </div>
+  </div>
+
+  <p class="footer-painel"><a href="painel.html">Painel</a></p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5577981114345" target="_blank">
